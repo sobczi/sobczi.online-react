@@ -1,13 +1,21 @@
-import { Component } from 'react';
-import './App.scss';
-import Header from './core/Header';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import './App.scss'
+import { Header } from './core/Header'
+import { LoginForm } from './pages/LoginForm'
+import { MainPage } from './pages/MainPage'
 
-export class App extends Component {
-  render() {
-    return (
-      <Header/>
-    );
-  }
+function App () {
+  return (
+    <Router>
+      <Header />
+      <div className='App'>
+        <Switch>
+          <Route path='/' exact component={MainPage} />
+          <Route path='/login' exact component={LoginForm} />
+        </Switch>
+      </div>
+    </Router>
+  )
 }
 
-export default App;
+export default App
